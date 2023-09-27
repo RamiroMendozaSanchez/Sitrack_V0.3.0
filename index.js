@@ -16,8 +16,8 @@ api.use(express.json());
 api.use('/',unitRoutes);
 
 async function getSid() {
-    const token = process.env.TOKEN_WIALON;
-    const baseURL = process.env.BASE_URL_WIALON;
+    const token = 'a3bb803c27770ea3a0082be2b77c328eE86E433926A9FF64D7223EFB32D698699962043D';
+    const baseURL = 'https://hst-api.wialon.us/wialon/ajax.html';
     console.log('getSid:{');
     console.log(token);
     console.log(baseURL);
@@ -45,7 +45,7 @@ async function readGroups(callback) {
 }
 
 async function getId() {
-    const baseURL = process.env.BASE_URL_WIALON;
+    const baseURL = 'https://hst-api.wialon.us/wialon/ajax.html';
     var listIds = [];
     var sid = await getSid();
     console.log('getId:{ ',baseURL);
@@ -120,7 +120,7 @@ async function getIdsBD() {
 
 async function getUnits() {
     var listUnits = [];
-    const baseURL = process.env.BASE_URL_WIALON;
+    const baseURL = 'https://hst-api.wialon.us/wialon/ajax.html';
     console.log(baseURL);
     var sid = await getSid();
     var obj = await getIdsBD();
@@ -196,7 +196,7 @@ function returnTimeUTC(utc) {
 }
 
 async function sendInfoSitrack() {
-    const apiSitrack = process.env.API_SITRACK_URL;
+    const apiSitrack = 'http://54.193.100.127:5175';
     var units = await getUnits();
     const results = [];
     await Promise.all(
